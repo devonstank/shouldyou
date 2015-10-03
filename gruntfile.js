@@ -15,6 +15,14 @@ module.exports = function(grunt) {
       }
     },
 
+    sass: {
+      dist: {
+        files: {
+          'css/application.css' : 'sass/application.scss'
+        }
+      }
+    },
+
     cssmin: {
       my_target: {
         files: [{
@@ -32,9 +40,12 @@ module.exports = function(grunt) {
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
+  // Load the plugin that provides the "sass" task.
+  grunt.loadNpmTasks('grunt-contrib-sass');
+
   // Load the plugin that provides the "cssmin" task.
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   
   // Default task(s).
-  grunt.registerTask('default', ['uglify', 'cssmin']);
+  grunt.registerTask('default', ['uglify', 'sass', 'cssmin']);
 };
