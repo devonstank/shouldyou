@@ -4,6 +4,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    watch: {
+      uglify: {
+        files: ['js/main.js'],
+        tasks: ['uglify']
+      },
+      sass: {
+        files: ['sass/*.scss'],
+        tasks: ['sass', 'cssmin']
+      }
+    },
+
     uglify: {
       options: {
         mangle: false
@@ -36,6 +47,9 @@ module.exports = function(grunt) {
     }
 
   });
+
+  // Load the plugin that provides the "watch" task.
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
