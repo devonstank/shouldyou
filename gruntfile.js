@@ -4,6 +4,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    // Remove unused CSS styles
     uncss: {
       dist: {
         files: {
@@ -12,6 +13,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Run predefined tasks whenever watched file patterns are added, changed or deleted
     watch: {
       uglify: {
         files: ['js/main.js'],
@@ -23,6 +25,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Compresses JS
     uglify: {
       options: {
         mangle: false
@@ -34,6 +37,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Compile Sass to CSS
     sass: {
       dist: {
         files: {
@@ -42,6 +46,7 @@ module.exports = function(grunt) {
       }
     },
 
+    // Compresses CSS
     cssmin: {
       my_target: {
         files: [{
